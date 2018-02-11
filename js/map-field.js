@@ -24,7 +24,9 @@ class MapField {
       this._clicked = true;
     };
 
-    this._field.onmouseup = () => {
+    this._el.ondragstart = () => { return false; };
+
+    document.onmouseup = () => {
       this._clicked = false;
     };
 

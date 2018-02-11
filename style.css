@@ -60,6 +60,7 @@ button {
   display: inline-block;
   height: 25px;
   width: 25px;
+  border-radius: 7px;
   margin: 0 5px 0 0;
 }
 
