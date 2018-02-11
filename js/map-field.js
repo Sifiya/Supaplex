@@ -3,18 +3,22 @@
 class MapField {
   constructor(options) {
     this._el = options.el;
+    this._output = this._el.querySelector('.map-creator__output');
     this._controls = options.controls;
     this._height = options.height;
     this._width = options.width;
 
     this._onCellOver = this._onCellOver.bind(this);
     this._fillCell = this._fillCell.bind(this);
+    this._fillOutput = this._fillOutput.bind(this);
+    this._createOutputObj = this._createOutputObj.bind(this);
 
     if (this._invalidOptions()) {
       return;
     }
 
     this._render();
+    this._createOutputObj();
 
     if (!this._field) {
       alert("Ошибка создания!");
@@ -48,6 +52,49 @@ class MapField {
 
     e.target.className = "map-creator__field__cell";
     e.target.classList.add(checkedInput.value);
+    this._createOutputObj();
+  }
+
+  _createOutputObj() {
+    let output = {
+      width: this._width,
+      height: this._height,
+      grass: [],
+      brick: [],
+      wood: []
+    };
+
+    let rows = this._el.querySelectorAll(".map-creator__field > ul");
+    let type;
+    for (let i = 0; i < rows.length; i++) {
+      let cells = rows[i].querySelectorAll("li");
+      for (let j = 0; j < cells.length; j++) {
+
+        switch (cells[j].className) {
+          case "map-creator__field__cell grass-field":
+            type = "grass";
+            break;
+          case "map-creator__field__cell brick-field":
+            type = "brick";
+            break;
+          case "map-creator__field__cell wood-field":
+            type = "wood";
+            break;
+          default:
+            type = null;
+            break;
+        }
+
+        if(type) output[type].push(`R${i}C${j}`);
+
+      }
+    }
+
+    this._fillOutput(output);
+  }
+
+  _fillOutput(output) {
+    this._output.value = JSON.stringify(output);
   }
 
   _invalidOptions() {
@@ -82,6 +129,6 @@ class MapField {
     }
 
     this._field.innerHTML = fieldHTML;
-    this._el.append(this._field);
+    this._output.before(this._field);
   }
 }

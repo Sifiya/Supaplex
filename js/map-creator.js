@@ -5,6 +5,7 @@ class MapCreator {
     this._el = options.el;
     this._formHTML = options.formHTML;
     this._controlsHTML = options.controlsHTML;
+    this._outputHTML = options.outputHTML;
 
     this._onCreateField = this._onCreateField.bind(this);
 
@@ -29,7 +30,7 @@ class MapCreator {
   }
 
   _render() {
-    this._el.innerHTML = this._formHTML + this._controlsHTML;
-    this._el.querySelector('[name="create"]').onclick = this._onCreateField;    
+    this._el.innerHTML = this._formHTML + this._controlsHTML + this._outputHTML;
+    this._el.querySelector('[name="create"]').onclick = this._onCreateField;
   }
 }

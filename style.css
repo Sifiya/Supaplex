@@ -34,7 +34,7 @@ button {
 .map-creator__controls ul {
   list-style: none;
   padding: 0;
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .map-creator__controls li {
@@ -86,4 +86,10 @@ button {
 
 .map-creator__controls__content:checked + label::before {
   box-shadow: 0 0 0 2px red;
+}
+
+.map-creator__output {
+  width: 500px;
+  height: 170px;
+  margin: 10px;
 }
