@@ -8,6 +8,7 @@ class MapField {
     this._width = options.width;
 
     this._onCellOver = this._onCellOver.bind(this);
+    this._fillCell = this._fillCell.bind(this);
 
     if (this._invalidOptions()) {
       return;
@@ -20,8 +21,9 @@ class MapField {
       return;
     }
 
-    this._field.onmousedown = () => {
+    this._field.onmousedown = (e) => {
       this._clicked = true;
+      this._fillCell(e);
     };
 
     this._el.ondragstart = () => { return false; };
@@ -36,12 +38,16 @@ class MapField {
   _onCellOver(e) {
     if (!this._clicked ||
         !(e.target.classList.contains("map-creator__field__cell"))) return;
+    this._fillCell(e);
+    //Функция будет заполнять клетку нужным содержимым по клику
+  }
+
+  _fillCell(e){
     let checkedInput = this._el.querySelector(".map-creator__controls__content:checked");
     if (!checkedInput) return;
 
     e.target.className = "map-creator__field__cell";
     e.target.classList.add(checkedInput.value);
-    //Функция будет заполнять клетку нужным содержимым по клику
   }
 
   _invalidOptions() {
