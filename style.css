@@ -1,0 +1,88 @@
+input[type="number"] {
+  width: 35px;
+  height: 12px;
+  padding: 5px;
+  padding-right: 2px;
+}
+
+button {
+  height: 21px;
+    border: 1px solid brown;
+  border-radius: 5px;
+  background-color: #FFCCDD;
+}
+
+.map-creator__field ul {
+  display: table-row;
+}
+
+.map-creator__field {
+  display: table;
+  border-collapse: collapse;
+  margin: 10px;
+}
+
+.map-creator__field__cell {
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #999;
+  display: table-cell;
+  cursor: pointer;
+}
+
+.map-creator__controls ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.map-creator__controls li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.map-creator__controls li:last-child {
+  margin-right: 0;
+}
+
+.map-creator__controls__content {
+  display: none;
+}
+
+.map-creator__controls__content + label {
+  font: 18px bold;
+  cursor: pointer;
+}
+
+.map-creator__controls__content + label::before {
+  content: "";
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  margin: 0 5px 0 0;
+}
+
+.grass-field,
+.map-creator__controls__content[value="grass-field"] + label::before {
+  background-color: #78AB46;
+}
+
+.wood-field,
+.map-creator__controls__content[value="wood-field"] + label::before {
+  background-color: #A0522D;
+}
+
+.brick-field,
+.map-creator__controls__content[value="brick-field"] + label::before {
+  background-color: #808080;
+}
+
+.empty-field,
+.map-creator__controls__content[value="empty-field"] + label::before {
+  background-color: #000;
+}
+
+.map-creator__controls__content:checked + label::before {
+  box-shadow: 0 0 0 2px red;
+}

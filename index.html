@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Supaplex Map Maker</title>
+    <script src="js/map-field.js" defer></script>
+    <script src="js/map-creator.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+
+    <article class="map-creator">
+    </article>
+
+    <script type="text/template" id="create-controls-template">
+        <form>
+          <label>
+            Ширина:
+            <input name="width" type="number" value="20">
+          </label>
+          <label>
+            Высота:
+            <input name="height" type="number" value="6">
+          </label>
+          <button name="create" type="button">Создать</button>
+       </form>
+    </script>
+
+    <script type="text/template" id="fill-controls-template">
+      <form class="map-creator__controls">
+        <ul>
+          <li>
+            <input class="map-creator__controls__content" type="radio" name="content" value="grass-field" id="radio-grass">
+            <label for="radio-grass">Трава</label>
+          </li>
+          <li>
+            <input class="map-creator__controls__content" type="radio" name="content" value="wood-field" id="radio-wood">
+            <label for="radio-wood">Дерево</label>
+          </li>
+          <li>
+            <input class="map-creator__controls__content" type="radio" name="content" value="brick-field" id="radio-brick">
+            <label for="radio-brick">Кирпич</label>
+          </li>
+          <li>
+            <input class="map-creator__controls__content" type="radio" name="content" value="empty-field" id="radio-empty">
+            <label for="radio-empty">Пустота</label>
+          </li>
+        </ul>
+      </form>
+    </script>
+
+  </body>
+</html>
