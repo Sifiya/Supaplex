@@ -1,0 +1,11 @@
+.character {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 30px;
+  width: 30px;
+  border: 2px solid #aa3333;
+  border-radius: 50%;
+  background-color: #cc4444;
+  transition: 250ms;
+}

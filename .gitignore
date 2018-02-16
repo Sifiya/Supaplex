@@ -1,0 +1,9 @@
+#ignore all node files
+node_modules/
+
+#corresponding files
+package*
+webpack*
+
+#and just-for-work files
+frontend/
